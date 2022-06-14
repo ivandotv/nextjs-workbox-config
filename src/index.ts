@@ -48,19 +48,22 @@ export function withWorkbox(
         return config
       }
       if (!wbConfig.swSrc) {
-        throw new Error('service worker path missing')
+        throw new Error('Workbox: service worker "path" is missing')
       }
 
       if (wbConfig.disable) {
-        console.log('> Progressive web app  is disabled')
+        console.log('Workbox: service worker is disabled')
 
         return config
       }
 
+      const swSrcPath = path.join(options.dir, wbConfig.swSrc)
+
+      console.log(`Workbox: service worker source path: "${swSrcPath}"`)
+
       const swDestPath = path.join(options.dir, wbConfig.dest, wbConfig.swDest)
 
-      console.log('> Compiling progressive web app')
-      console.log(`> Service worker destination path: "${swDestPath}"`)
+      console.log(`Workbox: service worker destination path: "${swDestPath}"`)
 
       const defaultDontCacheBustURLsMatching = /^\/_next\/static\/.*/iu
 
@@ -98,9 +101,6 @@ export function withWorkbox(
         }
       }
 
-      const swSrcPath = path.join(options.dir, wbConfig.swSrc)
-      console.log(`> Service worker source path: "${swSrcPath}"`)
-      console.log('> Using "WorkboxPlugin.InjectManifest"')
       config.plugins.push(
         new WorkboxPlugin.InjectManifest({
           swSrc: swSrcPath,
