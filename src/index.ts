@@ -18,7 +18,7 @@ export function withWorkbox(
       dest?: string
       dontCacheBustURLsMatching?: false
       exclude?: string[]
-      disable?: boolean
+      enable?: boolean
       modifyURLPrefix?: Record<string, string>
       swDest?: string
       swSrc?: string
@@ -35,12 +35,10 @@ export function withWorkbox(
       const wbConfig = {
         additionalManifestEntries: [],
         dest: 'public',
-        dontCacheBustURLsMatching: false,
         exclude: [],
-        disable: false,
+        enable: true,
         modifyURLPrefix: {},
         swDest: 'sw.js',
-        swSrc: false,
         ...(options.config.workbox || {})
       }
 
@@ -51,7 +49,7 @@ export function withWorkbox(
         throw new Error('Workbox: service worker "path" is missing')
       }
 
-      if (wbConfig.disable) {
+      if (!wbConfig.enable) {
         console.log('Workbox: service worker is disabled')
 
         return config
