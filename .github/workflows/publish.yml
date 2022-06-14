@@ -5,7 +5,7 @@ on:
       - 'main'
 jobs:
   build:
-    name: Node unit tests
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,7 +35,7 @@ jobs:
           pnpm build
 
       - name: 'Consume changesets'
-        if: github.event_name == 'push' && github.repository == 'ivandotv/nextjs-workbox-config' && matrix.node == 16 && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.repository == 'ivandotv/nextjs-workbox-config' && github.ref == 'refs/heads/main'
         uses: changesets/action@v1
         id: 'changesets'
         with:
