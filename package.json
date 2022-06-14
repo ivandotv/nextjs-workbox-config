@@ -25,7 +25,7 @@
     "src"
   ],
   "scripts": {
-    "lint": "eslint --fix \"src/**/\"",
+    "lint": "eslint \"src/**/\"",
     "build:prod": "cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json  --format modern,cjs --target node --output dist/prod/index.js",
     "build": "rm -rf ./dist && pnpm build:prod",
     "prepublishOnly": "pnpm build",
