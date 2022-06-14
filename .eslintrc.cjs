@@ -3,24 +3,12 @@ module.exports = {
   env: {
     // commonjs: true,
     es6: true,
-    node: true,
-    jest: true
+    node: true
   },
-  globals: {
-    __DEV__: true,
-    __VERSION__: true,
-    __COMMIT_SHA__: true,
-    __BUILD_DATE__: true
-  },
-  plugins: [
-    '@typescript-eslint/eslint-plugin',
-    'eslint-plugin-tsdoc',
-    'prettier'
-  ],
+  plugins: ['@typescript-eslint/eslint-plugin', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:jest/recommended',
     'prettier'
   ],
   parser: '@typescript-eslint/parser',
@@ -32,7 +20,6 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'tsdoc/syntax': 'warn',
     '@typescript-eslint/no-unused-vars': [
       2,
       { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
