@@ -1,6 +1,6 @@
 {
   "name": "nextjs-workbox-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Next.js configuration setting up service worker with Workbox",
   "keywords": [
     "nextjs",
