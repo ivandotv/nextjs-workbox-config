@@ -42,7 +42,7 @@
   "homepage": "https://github.com/ivandotv/nextjs-workbox-config#readme",
   "devDependencies": {
     "@changesets/cli": "^2.23.0",
-    "@types/glob": "^7.2.0",
+    "@types/glob": "^8.0.0",
     "@types/jest": "^28.1.1",
     "@types/node": "^17.0.42",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
